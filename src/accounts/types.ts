@@ -3,6 +3,10 @@ import { Field, ObjectType } from "type-graphql";
 import bcrypt from 'bcryptjs'
 
 
+// 
+// this is the equivalent of mongodb schema & graphql types
+// 
+
 @pre<Account>('save', function () {
     this.password = bcrypt.hashSync(this.password, 10)
 })
